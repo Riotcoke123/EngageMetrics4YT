@@ -16,9 +16,6 @@
     <li>Save data to a JSON file for further analysis.</li>
 </ul>
 
-<h2>Beta Testing</h2>
-<p>This project is currently in beta testing. We are continuously working to identify and resolve bugs related to bot engagement metrics. Your feedback is invaluable to us as we improve this tool!</p>
-
 <h2>Installation</h2>
 <pre><code>pip install google-api-python-client</code></pre>
 <p>Ensure you have Python installed and use pip to install the required package.</p>
