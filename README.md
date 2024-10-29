@@ -24,7 +24,10 @@
 <p>Ensure you have Python installed and use pip to install the required package.</p>
 
 <h2>Usage</h2>
-<p>Replace the <code>video_id</code> in the main function with the ID of the live stream you want to analyze, then run the script.</p>
+<ol>
+    <li>Replace the <code>video_id</code> in the main function with the ID of the live stream you want to analyze.</li>
+    <li>Run the script to fetch and save the data.</li>
+</ol>
 
 <h2>License</h2>
 <p>This project is licensed under the <strong>GNU General Public License v3.0</strong>.</p>
