@@ -11,7 +11,7 @@ def initialize_youtube(api_key):
     youtube = build('youtube', 'v3', developerKey=api_key)
     return youtube
 
-# Fetch live stream details, including view count
+# Fetch live stream details, including view count and engagement score
 def get_live_stream_details(youtube, video_id):
     response = youtube.videos().list(
         part='snippet,liveStreamingDetails',
@@ -22,24 +22,33 @@ def get_live_stream_details(youtube, video_id):
     if response['items']:
         username = response['items'][0]['snippet']['channelTitle']
         total_viewers = int(response['items'][0]['liveStreamingDetails'].get('concurrentViewers', 0))
-        return username, total_viewers
+        engagement_score = random.uniform(0.5, 0.9)  # Placeholder for actual engagement calculation
+        return username, total_viewers, engagement_score
     return None
 
-# Calculate engagement score based on chat analysis (placeholder for real chat analysis)
-def calculate_engagement_score(youtube, video_id):
-    try:
-        # For now, using random score; in practice, fetch and analyze chat messages
-        engagement_score = random.uniform(0.5, 0.9)  # This should be based on actual chat analysis
-        return engagement_score
-    except Exception as e:
-        logging.error(f"Error calculating engagement score: {e}")
-        return 0.7  # Default score in case of an error
+# Reverse engineer the real viewers based on the engagement score
+def estimate_real_viewers(engagement_score, total_viewers):
+    """
+    Reverse-engineering logic:
+    - High engagement (0.8 - 1.0) -> More real viewers
+    - Low engagement (0.1 - 0.4) -> More bot viewers
+    """
+    if engagement_score > 0.8:
+        # High engagement: assume 70-90% real viewers
+        real_viewers = int(total_viewers * random.uniform(0.7, 0.9))
+    elif engagement_score > 0.5:
+        # Medium engagement: assume 50-70% real viewers
+        real_viewers = int(total_viewers * random.uniform(0.5, 0.7))
+    else:
+        # Low engagement: assume 30-50% real viewers
+        real_viewers = int(total_viewers * random.uniform(0.3, 0.5))
+    
+    return real_viewers
 
-# Estimate bot viewers using basic engagement-based approximation
-def estimate_bot_viewers(total_viewers, engagement_score):
-    bot_viewers = total_viewers * (1 - engagement_score)  # engagement score (0-1) is a rough measure of real views
-    real_viewers = total_viewers - bot_viewers
-    return int(bot_viewers), int(real_viewers)
+# Estimate bot viewers based on total viewers and real viewers
+def estimate_bot_viewers(total_viewers, real_viewers):
+    bot_viewers = total_viewers - real_viewers
+    return bot_viewers
 
 # Save data to JSON
 def save_to_json(data, file_path):
@@ -53,8 +62,8 @@ def save_to_json(data, file_path):
 # Main function to execute
 def main():
     api_key = ''  # Ensure to keep your API key secure
-    video_id = 'BIy5z1TVGhM'  # Replace with actual video ID
-    file_path = r'data.json'
+    video_id = 'PQnv_meNns4'  # Replace with the actual video ID
+    file_path = r'data.json'    # Specify the file path
 
     # Initialize YouTube API client
     youtube = initialize_youtube(api_key)
@@ -65,16 +74,16 @@ def main():
         logging.warning("Stream details could not be retrieved.")
         return
 
-    username, total_viewers = live_data
-    logging.info(f"Fetched data: Username: {username}, Total Viewers: {total_viewers}")
+    username, total_viewers, engagement_score = live_data
+    logging.info(f"Fetched data: Username: {username}, Total Viewers: {total_viewers}, Engagement Score: {engagement_score}")
 
-    # Calculate engagement score based on chat analysis
-    engagement_score = calculate_engagement_score(youtube, video_id)
+    # Estimate real viewers based on engagement score
+    real_viewers = estimate_real_viewers(engagement_score, total_viewers)
 
-    # Calculate bot and real viewers
-    bot_viewers, real_viewers = estimate_bot_viewers(total_viewers, engagement_score)
+    # Estimate bot viewers
+    bot_viewers = estimate_bot_viewers(total_viewers, real_viewers)
 
-    # Prepare data for JSON output without the title
+    # Prepare data for JSON output
     data = {
         "username": username,
         "total_viewers": total_viewers,
