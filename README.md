@@ -8,7 +8,7 @@
         <img src="https://github.com/user-attachments/assets/99f3051c-76e7-48d5-b921-6a3846358ece" alt="RealView Audit Tool Overview" style="width:17%;max-width:50px;">
 
 <h1>YouTube Stream Insight</h1>
-<p>Welcome to the <strong>YouTube Stream Insight</strong> project! This tool analyzes live stream metrics from YouTube to provide insights into viewer engagement, real vs. bot viewers, and overall stream health. The <strong>Beta Test </strong> release includes improvements to viewer estimation algorithms and stream data fetching, along with enhanced error handling and logging features. We are actively working on refining these features based on user feedback.</p>
+<p>Welcome to the <strong>YouTube Stream Insight</strong> project! This tool analyzes live stream metrics from YouTube to provide insights into viewer engagement, real vs. bot viewers, and overall stream health. The <strong>Beta Test 1.0</strong> release includes improvements to viewer estimation algorithms and stream data fetching, along with enhanced error handling and logging features. We are actively working on refining these features based on user feedback.</p>
 
 <h2>Features</h2>
 <ul>
@@ -31,8 +31,8 @@
     <li>The results will be saved as a <code>data.json</code> file on your local system, containing the stream’s username, total viewers, engagement score, bot viewers, and real viewers.</li>
 </ol>
 
-<h2>Code Updates in Beta Test 0.2</h2>
-<p>The following improvements have been made in the Beta Test 0.2 release:</p>
+<h2>Code Updates in Beta Test 1.0</h2>
+<p>The following improvements have been made in the Beta Test 1.0 release:</p>
 <ul>
     <li>The engagement score is now generated directly when fetching live stream details, streamlining the workflow.</li>
     <li>Real viewers are estimated first, based on engagement score thresholds, followed by bot viewers as the difference.</li>
