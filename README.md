@@ -8,7 +8,7 @@
         <img src="https://github.com/user-attachments/assets/99f3051c-76e7-48d5-b921-6a3846358ece" alt="RealView Audit Tool Overview" style="width:17%;max-width:50px;">
 
 <h1>YouTube Stream Insight</h1>
-<p>Welcome to the <strong>YouTube Stream Insight</strong> project! This tool analyzes live stream metrics from YouTube to provide insights into viewer engagement, real vs. bot viewers, and overall stream health. The <strong>Beta Test 0.2</strong> release includes improvements to viewer estimation algorithms and stream data fetching, along with enhanced error handling and logging features. We are actively working on refining these features based on user feedback.</p>
+<p>Welcome to the <strong>YouTube Stream Insight</strong> project! This tool analyzes live stream metrics from YouTube to provide insights into viewer engagement, real vs. bot viewers, and overall stream health. The <strong>Beta Test </strong> release includes improvements to viewer estimation algorithms and stream data fetching, along with enhanced error handling and logging features. We are actively working on refining these features based on user feedback.</p>
 
 <h2>Features</h2>
 <ul>
