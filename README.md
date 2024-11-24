@@ -47,12 +47,6 @@
     <p>This project is licensed under the <strong>GNU General Public License v3.0</strong>. You are free to use, modify, and distribute this project under the same license.</p>
     <h2>Contributions</h2>
     <p>We welcome contributions! If you have suggestions, bug reports, or feature requests, feel free to fork the repository and submit a pull request. Let’s make this tool better together!</p>
-    <h2>Future Updates</h2>
-    <p>Planned features for upcoming versions:</p>
-    <ul>
-        <li>Replace placeholder engagement score with real-time metrics like likes, comments, and shares.</li>
-        <li>Implement a graphical dashboard to visualize live stream insights.</li>
-        <li>Integrate advanced bot detection algorithms based on historical data patterns.</li>
-    </ul>
+
 </body>
 </html>
