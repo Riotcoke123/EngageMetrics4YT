@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Stream Insight README</title>
 </head>
 <body>
     <img src="https://github.com/user-attachments/assets/99f3051c-76e7-48d5-b921-6a3846358ece" alt="RealView Audit Tool Overview" style="width:17%;max-width:50px;">
